@@ -42,4 +42,35 @@ public function pesquisarPorCategoria(Request $request)
             ]);
         }
     }
+
+
+
+
+public function excluir($id){
+    $roupas = Roupa::find($id);
+
+    if(!isset($roupas)){
+        return response()->json([
+            'status'=>false,
+            'message'=> "Roupa excluida"
+       
+        ]);
+    }
+
+    $roupas->delete();
+    return response()->json([
+        'status'=>true,
+        'message'=>"Roupa excluída com sucesso"
+    ]);
+
+    }
+
+    public function retornarTodos(){
+    $roupas = Roupa::all();
+    return response()->json([
+        'status' => true,
+        'data' => $roupas
+    ]);
+}
+
 }
