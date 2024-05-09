@@ -24,13 +24,13 @@ class RoupasRequest extends FormRequest
     public function rules(): array
     {
         return [
-        'tecido'=>'required',
-        'tamanho'=>'required',
+        'tecido'=>'required|max:50|min:3',
+        'tamanho'=>'required|max:5|min:1',
         'cor'=>'required',
-        'categoria'=>'required',
+        'categoria'=>'required|max:10|min:2',
         'fabricacao'=>'required',
         'estacao'=>'required',
-        'descricao'=>'required'
+        'descricao'=>'required|max:150|min:5'
         ];
     }
 
@@ -42,13 +42,21 @@ class RoupasRequest extends FormRequest
       }
       public function messages(){
        return [
-        'tecido.required'=>'O campo nome é obrigatorio',
-        'tamanho.required'=>'O campo nome é obrigatorio',
-        'cor.required'=>'O campo nome é obrigatorio',
-        'categoria.required'=>'O campo nome é obrigatorio',
-        'fabricacao.required'=>'O campo nome é obrigatorio',
-        'estacao.required'=>'O campo nome é obrigatorio',
-        'descricao.required'=>'O campo nome é obrigatorio'
+        'tecido.required'=>'O campo tecido é obrigatorio',
+        'tecido.max'=>'O campo tecido é obrigatorio conter no maximo 50 caracteres',
+        'tecido.min'=>'O campo tecido é obrigatorio conter no minimo 3 caracteres',
+        'tamanho.required'=>'O campo tamanho é obrigatorio',
+        'tamanho.max'=>'O campo tamanho é obrigatorio conter no maximo 5 caracteres',
+        'tamanho.min'=>'O campo tamanho é obrigatorio conter no minimo 1 caracteres',
+        'cor.required'=>'O campo cor é obrigatorio',
+        'categoria.required'=>'O campo categoria é obrigatorio',
+        'categoria.max'=>'O campo categoria é obrigatorio conter no maximo 10 caracteres',
+        'categoria.min'=>'O campo categoria é obrigatorio conter no minimo 2 caracteres',
+        'fabricacao.required'=>'O campo fabricacao é obrigatorio',
+        'estacao.required'=>'O campo estacao é obrigatorio',
+        'descricao.required'=>'O campo descricao é obrigatorio',
+        'descricao.max'=>'O campo descricao é obrigatorio conter no maximo 150 caracteres',
+        'descricao.min'=>'O campo descricao é obrigatorio conter no minimo 5 caracteres',
 
        ];
 }
