@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('cadastroRoupas',[RoupasController::class,'cadastroRoupas']);
 Route::get('pesquisaCategoria',[RoupasController::class,'pesquisarPorCategoria']);
-Route::get('excluir',[RoupasController::class,'excluir']);
+Route::delete('excluir/{id}',[RoupasController::class,'excluir']);
 Route::get('vizualizar',[RoupasController::class,'retornarTodos']);
+Route::put('editar/{id}',[RoupasController::class,'editarRoupas']);
+
 
